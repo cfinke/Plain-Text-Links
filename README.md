@@ -1,0 +1,1 @@
+Plain Text Links is an add-on for Firefox that allows you to open plain-text URLs as links via the context menu.
