@@ -1,5 +1,6 @@
-content     textlink     jar:chrome/plain-text-links.jar!/content/
+content     textlink     chrome/content/
 
-locale      textlink     en-US     jar:chrome/plain-text-links.jar!/locale/en-US/
+content     textlink-default-locale chrome/locale/en-US/
+locale      textlink     en-US      chrome/locale/en-US/
 
 overlay     chrome://browser/content/browser.xul     chrome://textlink/content/textlinkOverlay.xul

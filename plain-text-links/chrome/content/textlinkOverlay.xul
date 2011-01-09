@@ -1,7 +1,19 @@
 <?xml version="1.0"?>
-<!DOCTYPE overlay SYSTEM "chrome://textlink/locale/locale.dtd">
+<!DOCTYPE overlay [
+	<!ENTITY % localLocale SYSTEM "chrome://textlink/locale/locale.dtd">
+	%localLocale;
+	<!ENTITY % backupLocale SYSTEM "chrome://textlink-default-locale/content/locale.dtd">
+	%backupLocale;
+]>
 <overlay id="textlinkOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<script type="application/x-javascript" src="chrome://textlink/content/textlinkOverlay.js"></script>
+	<script type="application/x-javascript">
+		<![CDATA[
+		
+		addEventListener("load", TextLink.init, false);
+		
+		]]>
+	</script>
 	<popup id="contentAreaContextMenu">
 		<menuseparator id="textlink-sep" hidden="true" />
 		<menuitem id="textlink-open-link" label="&popup-textlink-open-link.label;" oncommand="TextLink.openLinkHere(event);" onclick="checkForMiddleClick(this, event)" hidden="true" />

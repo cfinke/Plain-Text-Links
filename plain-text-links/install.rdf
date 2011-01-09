@@ -3,7 +3,7 @@
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>{ec268e28-22c6-4a6c-ac22-635cabee283c}</em:id>
 		<em:name>Plain Text Links</em:name>
-		<em:version>1.0.1</em:version>
+		<em:version>2.0pre</em:version>
 		<em:creator>Christopher Finke</em:creator>
 		
 		<em:description>Open plain-text urls as links via context menu</em:description>
@@ -13,7 +13,7 @@
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 				<em:minVersion>1.5</em:minVersion>
-				<em:maxVersion>3.6.*</em:maxVersion>
+				<em:maxVersion>4.0.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 	</Description>

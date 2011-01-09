@@ -9,11 +9,7 @@ rm -rf `find ./.tmp_xpi_dir/ -name ".DS_Store"`
 rm -rf `find ./.tmp_xpi_dir/ -name "Thumbs.db"`
 rm -rf `find ./.tmp_xpi_dir/ -name ".git"`
 
-cd .tmp_xpi_dir/chrome/
-zip -rq ../plain-text-links.jar *
-rm -rf *
-mv ../plain-text-links.jar ./
-cd ../
+cd .tmp_xpi_dir/
 zip -rq ~/Desktop/plain-text-links.xpi *
 cd ../
 rm -rf .tmp_xpi_dir/

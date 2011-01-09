@@ -4,31 +4,17 @@ var TextLink = {
 	menuItems : ["textlink-sep", "textlink-open-link"],
 	
 	init : function() {
+		removeEventListener("load", TextLink.init, false);
+		
 		getBrowser().addEventListener("click", TextLink.handleClick, false);
 		
-		window.removeEventListener("load", TextLink.init, false);
-		window.addEventListener("unload", TextLink.unload, false);		
-		
-		if ("@mozilla.org/extensions/manager;1" in Components.classes) {
-			var version =  Components.classes["@mozilla.org/extensions/manager;1"].getService(Components.interfaces.nsIExtensionManager).getItemForID("{ec268e28-22c6-4a6c-ac22-635cabee283c}").version;
-			var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getBranch("extensions.plain-text-links.");
-		
-			if (prefs.getCharPref("version") != version) {
-				prefs.setCharPref("version", version);
-			
-				var browser = getBrowser();
-			
-				setTimeout(function (browser) {
-					browser.selectedTab = browser.addTab("http://www.chrisfinke.com/firstrun/plain-text-links.php");
-				}, 3000, browser);
-			}
-		}
+		addEventListener("unload", TextLink.unload, false);
 	},
 	
 	unload : function () {
-		getBrowser().removeEventListener("click", TextLink.handleClick, true);
+		removeEventListener("unload", TextLink.unload, false);
 		
-		window.removeEventListener("unload", TextLink.unload, false);
+		getBrowser().removeEventListener("click", TextLink.handleClick, true);
 	},
 	
 	handleClick : function (event) {
@@ -150,5 +136,3 @@ var TextLink = {
 		consoleService.logStringMessage("Plain Text Links: " + message);
 	}
 };
-
-window.addEventListener("load", TextLink.init, false);
